@@ -4,6 +4,21 @@ let columnNum;              // 列数
 let imgWidth = 250;         // 画像の横幅
 let imgMarginRight = 10;    // cssで指定しているmargin。コーディング的に美しくないが暫定的にこれで
 
+let bgmOnOff;
+let date;
+
+function buttonClick() {
+
+    if (bgmOnOff === 0) {
+        bgmOnOff = 1;
+        document.getElementById("bgm").play();
+    }
+    else {
+        bgmOnOff = 0;
+        document.getElementById("bgm").pause();
+    }
+};
+
 function pageCreate() {
 
     // ウィンドウ幅に合わせた列数の指定。最低でも1列になるよう無理やり調整
@@ -48,8 +63,16 @@ function pageCreate() {
 
 }
 
+function loop() {
+    date = new Date();
+    document.getElementById("clock").innerHTML = date.toLocaleString();
+}
+
 // 起動時の処理
-pageCreate();
+window.addEventListener('load', function () {
+    pageCreate();
+    setInterval(loop, 100);
+})
 
 // ページサイズ変更時の処理
 window.addEventListener('resize', function () {
