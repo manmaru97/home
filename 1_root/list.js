@@ -3,6 +3,11 @@
 // URLのリスト。無限に追加できる。ローカルの絶対パスにも対応（"\"ではなく"/"にする必要あり）
 let list = [
     {
+        sitePass: '#',
+        siteName: '',
+        siteImage: 'clock'
+    },
+    {
         sitePass: 'https://manmaru97.github.io/game/game.html',
         siteName: '自作ゲーム',
         siteImage: 'image.gif'
